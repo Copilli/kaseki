@@ -1,34 +1,47 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const initialCards = Array.from({length:5}).map((_,i)=>({
-  id: i,
-  image: `https://picsum.photos/seed/about-${i}/600/400`,
-  info: `Descripción breve para el elemento ${i+1}`
-}))
+// CONFIGURACIÓN: Modifica las imágenes y descripciones desde aquí
+const initialCards = [
+  {
+    id: 0,
+    name: 'Dr. Juan Pérez', // Cambia el nombre del integrante aquí
+    image: 'https://picsum.photos/seed/about-0/600/400', // Cambia la URL de la imagen aquí
+    info: 'Miembro del equipo especializado en arqueología. Con experiencia en identificación de materiales cerámicos y líticos.'
+  },
+  {
+    id: 1,
+    name: 'Dra. María González',
+    image: 'https://picsum.photos/seed/about-1/600/400',
+    info: 'Investigador principal del proyecto Kaseki. Experto en análisis de materiales arqueológicos mediante técnicas de imagen.'
+  },
+  {
+    id: 2,
+    name: 'Ing. Carlos Rodríguez',
+    image: 'https://picsum.photos/seed/about-2/600/400',
+    info: 'Desarrollador web y especialista en inteligencia artificial aplicada a la arqueología.'
+  },
+  {
+    id: 3,
+    name: 'Lic. Ana Martínez',
+    image: 'https://picsum.photos/seed/about-3/600/400',
+    info: 'Coordinador de investigación y análisis de datos arqueológicos. Especialista en clasificación de artefactos.'
+  },
+  {
+    id: 4,
+    name: 'Dr. Roberto López',
+    image: 'https://picsum.photos/seed/about-4/600/400',
+    info: 'Consultor externo y asesor académico del proyecto. PhD en Arqueología Mesoamericana.'
+  }
+]
 
 export default function About(){
-  const [cards, setCards] = useState(initialCards)
-
-  function handleImageChange(e, idx){
-    const file = e.target.files && e.target.files[0]
-    if(!file) return
-    const reader = new FileReader()
-    reader.onload = (ev) => {
-      setCards(prev => prev.map(c => c.id === idx ? {...c, image: ev.target.result} : c))
-    }
-    reader.readAsDataURL(file)
-  }
-
-  function handleInfoChange(e, idx){
-    const val = e.target.value
-    setCards(prev => prev.map(c => c.id === idx ? {...c, info: val} : c))
-  }
+  const cards = initialCards
 
   return (
     <div>
       <h2 className="mb-4">About Us</h2>
-
-      <p className="text-muted">Aquí puedes agregar hasta cinco elementos con imagen e información descriptiva. Sube una imagen y edita el texto debajo de cada cuadro.</p>
+      <p>This section provides information about our team.</p>
+      
 
       <div className="row gy-4">
         {cards.map((card) => (
@@ -36,19 +49,12 @@ export default function About(){
             <div className="card about-card h-100 shadow-sm">
               <div className="card-img-top img-placeholder" style={{backgroundImage:`url(${card.image})`}}></div>
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Elemento {card.id + 1}</h5>
+                <h5 className="card-title">{card.name}</h5>
+                
 
-                <div className="mb-2">
-                  <label className="form-label small">Cambiar imagen</label>
-                  <input type="file" accept="image/*" className="form-control form-control-sm" onChange={(e)=>handleImageChange(e, card.id)} />
-                </div>
+                <p className="card-text">{card.info}</p>
 
-                <textarea className="form-control mb-2" rows={3} value={card.info} onChange={(e)=>handleInfoChange(e, card.id)} />
-
-                <div className="mt-auto d-flex justify-content-between align-items-center">
-                  <small className="text-muted">Preview local</small>
-                  <button className="btn btn-outline-primary btn-sm" onClick={()=>navigator.clipboard?.writeText(card.info)}>Copiar info</button>
-                </div>
+                
               </div>
             </div>
           </div>
