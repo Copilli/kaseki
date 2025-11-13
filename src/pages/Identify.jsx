@@ -1,28 +1,132 @@
 import React, { useState, useRef } from 'react'
 
+// Información detallada por material (fallback local)
+const MATERIAL_INFO = {
+  "Cerámica": {
+    description: 'Fragmentos de cerámica (barro cocido). Pueden mostrar decoración y características de fabricación que ayudan a tipificar cronológicamente.',
+    typology: 'Vasijas, platos, tiestos, fragmentos decorados o utilitarios.',
+    typical_context: 'Depósitos domésticos, basureros, contextos funerarios y ofrendas.',
+    recommended_actions: 'Revisar morfología, análisis petrográfico y comparativa tipológica con catálogos regionales.',
+    sources: [
+  { title: 'Ceramic - Wikipedia', url: 'https://en.wikipedia.org/wiki/Ceramic' },
+  { title: 'Portable Antiquities Scheme - Ceramics (UK)', url: 'https://finds.org.uk/learn/ceramics/' }
+    ]
+  },
+  "Piedra": {
+    description: 'Material lítico (piedra trabajada o natural). Incluye herramientas, núcleos, lascas y objetos esculpidos.',
+    typology: 'Herramientas de corte, percusión, núcleos y piezas utilitarias o rituales.',
+    typical_context: 'Niveles de actividad, talleres y afloramientos cercanos.',
+    recommended_actions: 'Registrar tipo de roca, tecnología lítica y realizar análisis de uso si es posible.',
+    sources: [
+  { title: 'Lithic tool - Wikipedia', url: 'https://en.wikipedia.org/wiki/Lithic_tool' },
+  { title: 'Archaeology Data Service (ADS)', url: 'https://archaeologydataservice.ac.uk/' }
+    ]
+  },
+  "Hueso": {
+    description: 'Material osteológico procedente de fauna o humano. Presenta características internas y externas que permiten su identificación.',
+    typology: 'Restos óseos completos o fragmentados, artefactos modificados (punzones, agujas).',
+    typical_context: 'Depósitos alimentarios, funerarios y contextos rituales.',
+    recommended_actions: 'Evaluar anatómicamente y, si procede, enviar a análisis zooarqueológico o antropológico.',
+    sources: [
+  { title: 'Bone - Wikipedia', url: 'https://en.wikipedia.org/wiki/Bone' },
+  { title: 'Smithsonian National Museum of Natural History', url: 'https://naturalhistory.si.edu/' }
+    ]
+  },
+  "Metal": {
+    description: 'Objetos metálicos (fundidos, forjados, o laminados). Incluye aleaciones y evidencias de tratamientos superficiales.',
+    typology: 'Utensilios, adornos, herramientas y restos de fundición.',
+    typical_context: 'Talleres metalúrgicos, contextos funerarios y depósitos votivos.',
+    recommended_actions: 'Examinar tipos de aleación, corrosión y considerar análisis elemental (p. ej. XRF).',
+    sources: [
+  { title: 'Metalworking - Wikipedia', url: 'https://en.wikipedia.org/wiki/Metalworking' },
+  { title: 'The British Museum - Metal objects', url: 'https://www.britishmuseum.org/collection' }
+    ]
+  },
+  "Vidrio": {
+    description: 'Material vítreo, a menudo asociado a recipientes o fragmentos vitrificados por procesos culturales o post-deposicionales.',
+    typology: 'Fragmentos de recipientes, cuentas y vitrinas.',
+    typical_context: 'Depósitos domésticos, contextos industriales o funerarios.',
+    recommended_actions: 'Documentar color, grosor y posibles tratamientos; considerar análisis composicional.',
+    sources: [
+  { title: 'Glass - Wikipedia', url: 'https://en.wikipedia.org/wiki/Glass' },
+  { title: 'Corning Museum of Glass', url: 'https://www.cmog.org/' }
+    ]
+  }
+}
+
+function mockIdentifyFromName(name){
+  if(!name) name = 'file'
+  let h = 0
+  for(let i=0;i<name.length;i++) h = (h<<5) - h + name.charCodeAt(i)
+  const materials = Object.keys(MATERIAL_INFO)
+  const idx = Math.abs(h) % materials.length
+  const material = materials[idx]
+  return { material }
+}
+
 export default function Identify(){
   const [fileData, setFileData] = useState(null)
-  const [meta, setMeta] = useState(null)
+  const [result, setResult] = useState(null)
+  const [sources, setSources] = useState([])
+  const [loading, setLoading] = useState(false)
   const imgRef = useRef(null)
+
+  async function identifyImage({dataUrl, file}){
+    setLoading(true)
+    setResult(null)
+    setSources([])
+
+    // Intentamos llamar a la API backend primero
+    try {
+      const form = new FormData()
+      form.append('image', file)
+      const res = await fetch('http://localhost:5000/identify', {
+        method: 'POST',
+        body: form
+      })
+      if(!res.ok) throw new Error('API response not ok')
+      const json = await res.json()
+      // Guardar todos los campos enriquecidos que devuelve la API
+      setResult({
+        material: json.material,
+        notes: json.notes,
+        description: json.description,
+        typology: json.typology,
+        typical_context: json.typical_context,
+        recommended_actions: json.recommended_actions
+      })
+      setSources(json.sources || [])
+      setLoading(false)
+      return
+    } catch (err) {
+      console.warn('API identify failed, falling back to local mock:', err.message)
+    }
+
+    // Fallback local mock (si la API no está disponible)
+    await new Promise(r=>setTimeout(r, 400)) // simula latencia
+    const id = mockIdentifyFromName(file?.name)
+    const mat = id.material
+    const info = MATERIAL_INFO[mat] || {}
+    setResult({
+      material: mat,
+      notes: 'Resultado preliminar (mock, fallback).',
+      description: info.description,
+      typology: info.typology,
+      typical_context: info.typical_context,
+      recommended_actions: info.recommended_actions
+    })
+    setSources(info.sources || [])
+    setLoading(false)
+  }
 
   function handleFile(e){
     const f = e.target.files && e.target.files[0]
     if(!f) return
     const reader = new FileReader()
     reader.onload = (ev) => {
-      setFileData(ev.target.result)
-      // get dimensions
-      const img = new Image()
-      img.onload = () => {
-        setMeta({
-          name: f.name,
-          size: f.size,
-          type: f.type,
-          width: img.width,
-          height: img.height
-        })
-      }
-      img.src = ev.target.result
+      const dataUrl = ev.target.result
+      setFileData(dataUrl)
+      identifyImage({dataUrl, file: f})
     }
     reader.readAsDataURL(f)
   }
@@ -32,10 +136,10 @@ export default function Identify(){
       <h2 className="mb-4">Identificación de materiales</h2>
 
       <div className="identify-box p-3 mb-4">
-        <div className="row align-items-center">
+        <div className="row align-items-start">
           <div className="col-md-6 border-end">
             <h5>Imagen</h5>
-            <p>Sube una imagen del objeto arqueológico. La aplicación la leerá y mostrará una vista previa.</p>
+            <p>Sube una imagen del objeto arqueológico. La aplicación intentará identificar el material (mock por ahora).</p>
             <input type="file" accept="image/*" onChange={handleFile} className="form-control mb-3" />
 
             <div className="preview-box">
@@ -48,41 +152,42 @@ export default function Identify(){
           </div>
 
           <div className="col-md-6">
-            <h5>Información procesada</h5>
+            <h5>Resultado de identificación</h5>
             <div className="processed p-3">
-              {meta ? (
-                <div>
-                  <p><strong>Nombre:</strong> {meta.name}</p>
-                  <p><strong>Tipo:</strong> {meta.type || 'desconocido'}</p>
-                  <p><strong>Tamaño:</strong> {(meta.size/1024).toFixed(1)} KB</p>
-                  <p><strong>Dimensiones:</strong> {meta.width} x {meta.height} px</p>
-                  <hr />
-                  <p><em>Resultado preliminar:</em> (Aquí puedes integrar un modelo o API para identificar el material.)</p>
-                  <ul>
-                    <li>Posible material: <strong>—</strong></li>
-                    <li>Confianza: <strong>—</strong></li>
-                  </ul>
-                </div>
-              ) : (
-                <p>No hay datos procesados aún. Sube una imagen para empezar.</p>
-              )}
+              {loading ? (
+                <p>Identificando...</p>
+                      ) : result ? (
+                          <div>
+                            <p><strong>Material probable:</strong> {result.material}</p>
+                            <p className="small text-muted">{result.notes}</p>
+                            <hr />
+                            <h6>Descripción</h6>
+                            <p>{result.description}</p>
+                            <h6>Tipología</h6>
+                            <p>{result.typology}</p>
+                            <h6>Contexto típico</h6>
+                            <p>{result.typical_context}</p>
+                            <h6>Acciones recomendadas</h6>
+                            <p>{result.recommended_actions}</p>
+                            <hr />
+                            <h6>Fuentes asociadas</h6>
+                            {sources.length ? (
+                              <ul>
+                                {sources.map((s, i) => (
+                                  <li key={i}><a href={s.url} target="_blank" rel="noreferrer">{s.title}</a></li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-muted small">No hay fuentes disponibles para este material.</p>
+                            )}
+                          </div>
+                        ) : (
+                          <p>No hay identificación todavía. Sube una imagen para que el sistema proponga un material.</p>
+                        )}
             </div>
           </div>
         </div>
       </div>
-
-      <section>
-        <h5>Fuentes y recursos arqueológicos</h5>
-        <div className="sources mt-3">
-          <ul>
-            <li><a href="#">Centro de arqueología - catálogo de materiales</a></li>
-            <li><a href="#">Guía tipológica de cerámica</a></li>
-            <li><a href="#">Repositorio de imágenes arqueológicas</a></li>
-            <li><a href="#">Publicaciones y estudios (journals)</a></li>
-          </ul>
-          <p className="text-muted small">Estas fuentes sirven para complementar la identificación y proporcionar contexto histórico y tipológico.</p>
-        </div>
-      </section>
     </div>
   )
 }
