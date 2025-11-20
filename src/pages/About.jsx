@@ -4,33 +4,33 @@ import React from 'react'
 const initialCards = [
   {
     id: 0,
-    name: 'Dr. Juan Pérez', // Cambia el nombre del integrante aquí
+    name: 'Regina Garcia', // Cambia el nombre del integrante aquí
     image: 'https://picsum.photos/seed/about-0/600/400', // Cambia la URL de la imagen aquí
-    info: 'Miembro del equipo especializado en arqueología. Con experiencia en identificación de materiales cerámicos y líticos.'
+    info: 'Designer on the Kaseki team. Specialist in background design for the app.'
   },
   {
     id: 1,
-    name: 'Dra. María González',
+    name: 'Ana Sandoval',
     image: 'https://picsum.photos/seed/about-1/600/400',
-    info: 'Investigador principal del proyecto Kaseki. Experto en análisis de materiales arqueológicos mediante técnicas de imagen.'
+    info: 'Designer for the Kaseki team. Expert in logo and character design for the app.'
   },
   {
     id: 2,
-    name: 'Ing. Carlos Rodríguez',
+    name: 'Diego Velazquez',
     image: 'https://picsum.photos/seed/about-2/600/400',
-    info: 'Desarrollador web y especialista en inteligencia artificial aplicada a la arqueología.'
+    info: 'Mecanico y programador del equipo Kaseki. Experto en programacion de modelos roboticos para Lego League.'
   },
   {
     id: 3,
-    name: 'Lic. Ana Martínez',
+    name: 'Gael Casas',
     image: 'https://picsum.photos/seed/about-3/600/400',
-    info: 'Coordinador de investigación y análisis de datos arqueológicos. Especialista en clasificación de artefactos.'
+    info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construccion de modelos roboticos para Lego League'
   },
   {
     id: 4,
-    name: 'Dr. Roberto López',
+    name: 'Yareni Saavedra',
     image: 'https://picsum.photos/seed/about-4/600/400',
-    info: 'Consultor externo y asesor académico del proyecto. PhD en Arqueología Mesoamericana.'
+    info: 'Programadora principal del equipo Kaseki. Especialista en desarrollo y programacion de la app.'
   }
 ]
 

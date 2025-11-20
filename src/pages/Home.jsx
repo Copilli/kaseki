@@ -13,11 +13,6 @@ export default function Home() {
       <div className="row g-4 py-5">
         <div className="col-md-8">
           <article className="card mb-4">
-            <div className="card-body">
-              <h2 className="card-title">COPILLI TEAM</h2>
-              <p className="card-text">Do you want to meet the principal team? Click below</p>
-              <a className="btn btn-primary" href="#">To About Us</a>
-            </div>
           </article>
 
           <div className="row">
