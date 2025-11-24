@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Identify from './pages/Identify'
+import IdentifyCivilization from './pages/IdentifyCivilization'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/identify" element={<Identify />} />
+          <Route path="/identify-civilization" element={<IdentifyCivilization />} />
         </Routes>
       </main>
     </div>

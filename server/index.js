@@ -176,8 +176,136 @@ async function fetchCrossRef(query) {
   })
 }
 
-app.get('/', (req, res) => res.json({ ok: true, msg: 'Kaseki mock identification API' }))
+// Endpoint para identificar civilización
+app.post('/identify-civilization', upload.single('image'), async (req, res) => {
+  try {
+    const file = req.file
+    if (!file) return res.status(400).json({ error: 'No image uploaded' })
+
+    // Mock: usar nombre del archivo para simular identificación
+    const civilizationGuess = await guessCivilizationFromImage(file)
+    
+    // Buscar información en la web sobre la civilización
+    const civilizationData = await fetchCivilizationInfo(civilizationGuess)
+    
+    res.json(civilizationData)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: 'Server error' })
+  }
+})
+
+// Simula identificación de civilización (en producción usarías un modelo de IA)
+async function guessCivilizationFromImage(file) {
+  const name = file.originalname || 'artifact'
+  const civilizations = ['Maya', 'Azteca', 'Inca', 'Egipcia', 'Romana', 'Griega', 'China', 'Mesopotamia', 'Olmeca']
+  let h = 0
+  for (let i = 0; i < name.length; i++) h = (h << 5) - h + name.charCodeAt(i)
+  const idx = Math.abs(h) % civilizations.length
+  return civilizations[idx]
+}
+
+// Busca información de civilización usando Wikipedia API
+async function fetchCivilizationInfo(civilizationName) {
+  try {
+    // Buscar en Wikipedia en español primero
+    const searchUrl = `https://es.wikipedia.org/w/api.php?action=opensearch&search=${encodeURIComponent(civilizationName + ' civilización')}&limit=1&format=json&origin=*`
+    const searchResp = await fetch(searchUrl)
+    const searchData = await searchResp.json()
+    
+    if (searchData[1] && searchData[1][0]) {
+      const pageTitle = searchData[1][0]
+      const pageUrl = searchData[3][0]
+      
+      // Obtener extracto de la página
+      const extractUrl = `https://es.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&titles=${encodeURIComponent(pageTitle)}&format=json&origin=*`
+      const extractResp = await fetch(extractUrl)
+      const extractData = await extractResp.json()
+      
+      const pages = extractData.query.pages
+      const pageId = Object.keys(pages)[0]
+      const extract = pages[pageId].extract || ''
+      
+      // Parsear información básica del extracto
+      const lines = extract.split('\n').filter(l => l.trim())
+      const description = lines.slice(0, 3).join(' ').substring(0, 500)
+      
+      // Buscar artículos académicos relacionados
+      const academicSources = await fetchCrossRef(civilizationName + ' civilization archaeology')
+      
+      return {
+        civilization: civilizationName,
+        description: description || `${civilizationName} es una civilización antigua importante en la historia de la humanidad.`,
+        period: extractPeriod(extract),
+        region: extractRegion(extract),
+        characteristics: extractCharacteristics(extract),
+        notes: 'Información obtenida de búsqueda web en tiempo real',
+        sources: [
+          { title: `${pageTitle} - Wikipedia`, url: pageUrl },
+          ...academicSources
+        ]
+      }
+    }
+    
+    // Fallback si no encuentra en Wikipedia
+    return {
+      civilization: civilizationName,
+      description: `${civilizationName} es una civilización histórica. La información específica no está disponible en este momento.`,
+      period: 'Período no especificado',
+      region: 'Región por determinar',
+      characteristics: 'Características en investigación',
+      notes: 'Información limitada - se requiere más investigación',
+      sources: []
+    }
+  } catch (err) {
+    console.error('Error fetching civilization info:', err)
+    return {
+      civilization: civilizationName,
+      description: 'Error al obtener información',
+      period: 'N/A',
+      region: 'N/A',
+      characteristics: 'N/A',
+      notes: 'Error en la búsqueda web',
+      sources: []
+    }
+  }
+}
+
+// Extrae período temporal del texto
+function extractPeriod(text) {
+  const periodRegex = /(\d{1,4}\s*(?:a\.?\s*C\.?|d\.?\s*C\.?|AC|DC|BCE|CE))/gi
+  const matches = text.match(periodRegex)
+  if (matches && matches.length >= 2) {
+    return `${matches[0]} - ${matches[1]}`
+  } else if (matches && matches.length === 1) {
+    return matches[0]
+  }
+  return 'Período no especificado'
+}
+
+// Extrae región geográfica del texto
+function extractRegion(text) {
+  const lines = text.split('\n')
+  for (const line of lines) {
+    if (line.toLowerCase().includes('ubicad') || 
+        line.toLowerCase().includes('región') || 
+        line.toLowerCase().includes('territorio') ||
+        line.toLowerCase().includes('localizad')) {
+      return line.substring(0, 200)
+    }
+  }
+  return 'Región por determinar'
+}
+
+// Extrae características principales
+function extractCharacteristics(text) {
+  const lines = text.split('\n').filter(l => l.trim())
+  const relevantLines = lines.slice(3, 6).join(' ')
+  return relevantLines.substring(0, 300) || 'Características en investigación'
+}
+
+app.get('/', (req, res) => res.json({ ok: true, msg: 'Kaseki identification API with web search' }))
 
 app.listen(PORT, () => {
-  console.log(`Kaseki mock API listening on http://localhost:${PORT}`)
+  console.log(`Kaseki API with web search listening on http://localhost:${PORT}`)
 })

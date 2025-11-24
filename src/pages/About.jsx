@@ -4,33 +4,33 @@ import React from 'react'
 const initialCards = [
   {
     id: 0,
-    name: 'Regina Garcia', // Cambia el nombre del integrante aquí
-    image: 'https://picsum.photos/seed/about-0/600/400', // Cambia la URL de la imagen aquí
+    name: 'Regina Garcia',
+    image: '/images/regina.jpg',
     info: 'Designer on the Kaseki team. Specialist in background design for the app.'
   },
   {
     id: 1,
     name: 'Ana Sandoval',
-    image: 'https://picsum.photos/seed/about-1/600/400',
+    image: '/images/ana.jpg',
     info: 'Designer for the Kaseki team. Expert in logo and character design for the app.'
   },
   {
     id: 2,
     name: 'Diego Velazquez',
-    image: 'https://picsum.photos/seed/about-2/600/400',
-    info: 'Mecanico y programador del equipo Kaseki. Experto en programacion de modelos roboticos para Lego League.'
+    image: '/images/diego.jpg',
+    info: 'Mechanic and programmer for the Kaseki team. Expert in programming robotic models for Lego League.'
   },
   {
     id: 3,
     name: 'Gael Casas',
-    image: 'https://picsum.photos/seed/about-3/600/400',
-    info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construccion de modelos roboticos para Lego League'
+    image: '/images/gael.jpg',
+    info: 'Constructor and designer for the Kaseki team. Expert in design and construction of robotic models for Lego League.'
   },
   {
     id: 4,
     name: 'Yareni Saavedra',
-    image: 'https://picsum.photos/seed/about-4/600/400',
-    info: 'Programadora principal del equipo Kaseki. Especialista en desarrollo y programacion de la app.'
+    image: '/images/yareni.jpg',
+    info: 'Lead programmer for the Kaseki team. Specialist in app development and programming.'
   }
 ]
 
@@ -40,21 +40,53 @@ export default function About(){
   return (
     <div>
       <h2 className="mb-4">About Us</h2>
-      <p>This section provides information about our team.</p>
       
+      {/* Tarjeta hero grande con imagen y texto */}
+      <div className="card mb-5 shadow-lg border-0">
+        <div className="row g-0">
+          <div className="col-md-6">
+            <div className="card-body p-5 d-flex flex-column justify-content-center h-100">
+              <h3 className="card-title fw-bold mb-3">Kaseki Team</h3>
+              <p className="card-text lead mb-3">
+                Somos un equipo dedicado a la identificación y preservación del patrimonio arqueológico mediante tecnología moderna.
+              </p>
+              <p className="card-text">
+                Nuestro objetivo es hacer accesible la arqueología a través de herramientas de inteligencia artificial y búsqueda web, permitiendo identificar materiales y civilizaciones de cualquier parte del mundo.
+              </p>
+              <p className="card-text mb-0">
+                <small className="text-muted">Combinando pasión por la historia con innovación tecnológica</small>
+              </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <img 
+              src="/images/hero.jpg" 
+              className="img-fluid rounded-end" 
+              alt="Archaeological artifacts"
+              style={{height: '100%', objectFit: 'cover', minHeight: '350px'}}
+            />
+          </div>
+        </div>
+      </div>
 
-      <div className="row gy-4">
+      {/* Sección de miembros del equipo */}
+      <h3 className="mb-4">Nuestro Equipo</h3>
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card) => (
-          <div className="col-md-4" key={card.id}>
-            <div className="card about-card h-100 shadow-sm">
-              <div className="card-img-top img-placeholder" style={{backgroundImage:`url(${card.image})`}}></div>
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{card.name}</h5>
-                
-
-                <p className="card-text">{card.info}</p>
-
-                
+          <div className="col" key={card.id}>
+            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
+              <div 
+                className="card-img-top" 
+                style={{
+                  backgroundImage:`url(${card.image})`,
+                  height: '60%',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              ></div>
+              <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
+                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
+                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
               </div>
             </div>
           </div>
