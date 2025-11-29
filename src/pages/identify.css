@@ -1,0 +1,5 @@
+.identify-box { border-radius: 6px; background: #ffffff; box-shadow: 0 0 12px rgba(0,0,0,0.04); }
+.preview-box { background: #f8f9fa; padding: 8px; border-radius: 4px; display: flex; align-items: center; justify-content: center; height: 200px; }
+.identify-box .processed { min-height: 180px; }
+.placeholder { color: #868e96; }
+.processed img { max-width: 100%; }
