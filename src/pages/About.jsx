@@ -5,7 +5,7 @@ const initialCards = [
   {
     id: 0,
     name: 'Regina Garcia',
-    image: '/images/regina.jpg',
+    image: '/pictures/IMG_4032 (1).jpeg',
     info: 'Designer on the Kaseki team. Specialist in background design for the app.'
   },
   {
@@ -48,13 +48,13 @@ export default function About(){
             <div className="card-body p-5 d-flex flex-column justify-content-center h-100">
               <h3 className="card-title fw-bold mb-3">Kaseki Team</h3>
               <p className="card-text lead mb-3">
-                Somos un equipo dedicado a la identificación y preservación del patrimonio arqueológico mediante tecnología moderna.
+                We are a team dedicated to the identification and preservation of archaeological heritage using modern technology.
               </p>
               <p className="card-text">
-                Nuestro objetivo es hacer accesible la arqueología a través de herramientas de inteligencia artificial y búsqueda web, permitiendo identificar materiales y civilizaciones de cualquier parte del mundo.
+                Our goal is to make archaeology accessible through artificial intelligence tools and web search, allowing the identification of materials and civilizations from anywhere in the world.
               </p>
               <p className="card-text mb-0">
-                <small className="text-muted">Combinando pasión por la historia con innovación tecnológica</small>
+                <small className="text-muted">Combining a passion for history with technological innovation</small>
               </p>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function About(){
       </div>
 
       {/* Sección de miembros del equipo */}
-      <h3 className="mb-4">Nuestro Equipo</h3>
+      <h3 className="mb-4">Our Team</h3>
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card) => (
           <div className="col" key={card.id}>

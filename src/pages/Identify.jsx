@@ -133,13 +133,13 @@ export default function Identify(){
 
   return (
     <div>
-      <h2 className="mb-4">Identificación de materiales</h2>
+      <h2 className="mb-4">Material Identify</h2>
 
       <div className="identify-box p-3 mb-4">
         <div className="row align-items-start">
           <div className="col-md-6 border-end">
-            <h5>Imagen</h5>
-            <p>Sube una imagen del objeto arqueológico. La aplicación intentará identificar el material (mock por ahora).</p>
+            <h5>Picture</h5>
+            <p>Upload an image of the archaeological object. The application will attempt to identify the material.</p>
             <input type="file" accept="image/*" onChange={handleFile} className="form-control mb-3" />
 
             <div className="preview-box">
@@ -152,25 +152,25 @@ export default function Identify(){
           </div>
 
           <div className="col-md-6">
-            <h5>Resultado de identificación</h5>
+            <h5>Results from the identification</h5>
             <div className="processed p-3">
               {loading ? (
-                <p>Identificando...</p>
+                <p>Identifying...</p>
                       ) : result ? (
                           <div>
-                            <p><strong>Material probable:</strong> {result.material}</p>
+                            <p><strong>Possible material:</strong> {result.material}</p>
                             <p className="small text-muted">{result.notes}</p>
                             <hr />
-                            <h6>Descripción</h6>
+                            <h6>Description</h6>
                             <p>{result.description}</p>
-                            <h6>Tipología</h6>
+                            <h6>Tipology</h6>
                             <p>{result.typology}</p>
-                            <h6>Contexto típico</h6>
+                            <h6>Typic context</h6>
                             <p>{result.typical_context}</p>
-                            <h6>Acciones recomendadas</h6>
+                            <h6>Recommended action</h6>
                             <p>{result.recommended_actions}</p>
                             <hr />
-                            <h6>Fuentes asociadas</h6>
+                            <h6>Sources</h6>
                             {sources.length ? (
                               <ul>
                                 {sources.map((s, i) => (
@@ -178,11 +178,11 @@ export default function Identify(){
                                 ))}
                               </ul>
                             ) : (
-                              <p className="text-muted small">No hay fuentes disponibles para este material.</p>
+                              <p className="text-muted small">There is no sources for this material.</p>
                             )}
                           </div>
                         ) : (
-                          <p>No hay identificación todavía. Sube una imagen para que el sistema proponga un material.</p>
+                          <p>There is no identifycation either. Load an image to identifycate the material your lookinf for.</p>
                         )}
             </div>
           </div>
