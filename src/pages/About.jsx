@@ -6,31 +6,31 @@ const initialCards = [
     id: 0,
     name: 'Regina Garcia',
     image: '/pictures/IMG_4032 (1).jpeg',
-    info: 'Designer on the Kaseki team. Specialist in background design for the app.'
+    info: 'Diseñadora del equipo Kaseki. Especialista en diseño de fondos para la aplicación.'
   },
   {
     id: 1,
     name: 'Ana Sandoval',
     image: '/images/ana.jpg',
-    info: 'Designer for the Kaseki team. Expert in logo and character design for the app.'
+    info: 'Diseñadora del equipo Kaseki. Experta en diseño de logos y personajes para la aplicación.'
   },
   {
     id: 2,
     name: 'Diego Velazquez',
     image: '/images/diego.jpg',
-    info: 'Mechanic and programmer for the Kaseki team. Expert in programming robotic models for Lego League.'
+    info: 'Mecánico y programador del equipo Kaseki. Experto en programación de modelos robóticos para Lego League.'
   },
   {
     id: 3,
     name: 'Gael Casas',
     image: '/images/gael.jpg',
-    info: 'Constructor and designer for the Kaseki team. Expert in design and construction of robotic models for Lego League.'
+    info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
   },
   {
     id: 4,
     name: 'Yareni Saavedra',
     image: '/images/yareni.jpg',
-    info: 'Lead programmer for the Kaseki team. Specialist in app development and programming.'
+    info: 'Programadora líder del equipo Kaseki. Especialista en desarrollo de aplicaciones y programación.'
   }
 ]
 
@@ -39,22 +39,22 @@ export default function About(){
 
   return (
     <div>
-      <h2 className="mb-4">About Us</h2>
+      <h2 className="mb-4">Acerca de Nosotros</h2>
       
       {/* Tarjeta hero grande con imagen y texto */}
       <div className="card mb-5 shadow-lg border-0">
         <div className="row g-0">
           <div className="col-md-6">
             <div className="card-body p-5 d-flex flex-column justify-content-center h-100">
-              <h3 className="card-title fw-bold mb-3">Kaseki Team</h3>
+              <h3 className="card-title fw-bold mb-3">Equipo Kaseki</h3>
               <p className="card-text lead mb-3">
-                We are a team dedicated to the identification and preservation of archaeological heritage using modern technology.
+                Somos un equipo dedicado a la identificación y preservación del patrimonio arqueológico utilizando tecnología moderna.
               </p>
               <p className="card-text">
-                Our goal is to make archaeology accessible through artificial intelligence tools and web search, allowing the identification of materials and civilizations from anywhere in the world.
+                Nuestro objetivo es hacer la arqueología accesible a través de herramientas de inteligencia artificial y búsqueda web, permitiendo la identificación de materiales y civilizaciones desde cualquier parte del mundo.
               </p>
               <p className="card-text mb-0">
-                <small className="text-muted">Combining a passion for history with technological innovation</small>
+                <small className="text-muted">Combinando la pasión por la historia con la innovación tecnológica</small>
               </p>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function About(){
             <img 
               src="/images/hero.jpg" 
               className="img-fluid rounded-end" 
-              alt="Archaeological artifacts"
+              alt="Artefactos arqueológicos"
               style={{height: '100%', objectFit: 'cover', minHeight: '350px'}}
             />
           </div>
@@ -70,7 +70,7 @@ export default function About(){
       </div>
 
       {/* Sección de miembros del equipo */}
-      <h3 className="mb-4">Our Team</h3>
+      <h3 className="mb-4">Nuestro Equipo</h3>
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card) => (
           <div className="col" key={card.id}>
@@ -92,6 +92,17 @@ export default function About(){
           </div>
         ))}
       </div>
+
+      <div class="container mb-5">
+        <h3 class="text-center mb-4">Dejanos tu opinión</h3>
+        <div class="d-flex justify-content-center">
+          <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScIvyoMmwdNt5Wj0VGYOOxVFc5wfK23Qvcp09g_vWarDekcnQ/viewform?embedded=true"
+              width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0"
+              style="max-width: 640px; border: none;">Cargando…</iframe>
+      </div>
+    </div>
+
     </div>
   )
 }

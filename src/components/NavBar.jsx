@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function NavBar() {
   return (
@@ -13,8 +13,13 @@ export default function NavBar() {
             className="me-2"
             onError={(e) => {e.target.style.display='none'}}
           />
-          <span>Kaseki</span>
+          <h1 className="navbar-title">
+              Kaseki <span className="navbar-subtitle">| Análisis Arqueologico</span>
+          </h1>
         </Link>
+        <div className="ai-badge">
+          <i className="fa-solid fa-robot me-1"></i> AI Gemini Vision
+        </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -24,17 +29,14 @@ export default function NavBar() {
               <NavLink className="nav-link" to="/">Inicio</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">About Us</NavLink>
+              <NavLink className="nav-link" to="/about">Acerca de Nosotros</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/identify">Material</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/identify-civilization">Civilization</NavLink>
+              <NavLink className="nav-link" to="/analyze">Análisis Arqueológico</NavLink>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
