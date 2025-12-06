@@ -39,7 +39,7 @@ export default function About(){
 
   return (
     <div>
-      <h2 className="mb-4">Acerca de Nosotros</h2>
+      <h2 className="text-center mb-4">Acerca de Nosotros</h2>
       
       {/* Tarjeta hero grande con imagen y texto */}
       <div className="card mb-5 shadow-lg border-0">
@@ -70,7 +70,7 @@ export default function About(){
       </div>
 
       {/* Sección de miembros del equipo */}
-      <h3 className="mb-4">Nuestro Equipo</h3>
+      <h3 className="text-center mb-4">Nuestro Equipo</h3>
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card) => (
           <div className="col" key={card.id}>
@@ -93,16 +93,17 @@ export default function About(){
         ))}
       </div>
 
-      <div class="container mb-5">
-        <h3 class="text-center mb-4">Dejanos tu opinión</h3>
-        <div class="d-flex justify-content-center">
+      <br/>
+
+      <div className="container mb-5">
+        <h3 className="text-center mb-4">Dejanos tu opinión</h3>
+        <div className="d-flex justify-content-center">
           <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLScIvyoMmwdNt5Wj0VGYOOxVFc5wfK23Qvcp09g_vWarDekcnQ/viewform?embedded=true"
-              width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0"
-              style="max-width: 640px; border: none;">Cargando…</iframe>
+              width="100%" height="1200" frameBorder="0" marginHeight="0" marginWidth="0"
+              style={{maxWidth: '640px', border: 'none'}}>Cargando…</iframe>
+        </div>
       </div>
-    </div>
-
     </div>
   )
 }

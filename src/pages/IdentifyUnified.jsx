@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { getGeminiURL } from '../config'
 
-export default function IdentifyUnifiedNew() {
+export default function IdentifyUnified() {
   const [currentMode, setCurrentMode] = useState('materials')
   const [selectedImage, setSelectedImage] = useState(null)
   const [results, setResults] = useState([])
