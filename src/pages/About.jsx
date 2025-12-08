@@ -29,7 +29,7 @@ const initialCards = [
   {
     id: 4,
     name: 'Yareni Saavedra',
-    image: '/images/yareni.jpg',
+    image: '*/images/yare.jpg',
     info: 'Programadora líder del equipo Kaseki. Especialista en desarrollo de aplicaciones y programación.'
   }
 ]
