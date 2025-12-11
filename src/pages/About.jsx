@@ -5,13 +5,13 @@ const initialCards = [
   {
     id: 0,
     name: 'Regina Garcia',
-    image: '/pictures/IMG_4032 (1).jpeg',
+    image: '/images/regina.jpeg',
     info: 'Diseñadora del equipo Kaseki. Especialista en diseño de fondos para la aplicación.'
   },
   {
     id: 1,
     name: 'Ana Sandoval',
-    image: '/images/ana.jpg',
+    image: '/images/ej.1.jpg',
     info: 'Diseñadora del equipo Kaseki. Experta en diseño de logos y personajes para la aplicación.'
   },
   {
@@ -23,13 +23,13 @@ const initialCards = [
   {
     id: 3,
     name: 'Gael Casas',
-    image: '/images/gael.jpg',
+    image: '/images/ej.3.jpg',
     info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
   },
   {
     id: 4,
     name: 'Yareni Saavedra',
-    image: '*/images/yare.jpg',
+    image: '/images/yare.jpeg',
     info: 'Programadora líder del equipo Kaseki. Especialista en desarrollo de aplicaciones y programación.'
   }
 ]
