@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { getGeminiURL } from '../config'
 
 export default function IdentifyUnified() {
@@ -164,6 +164,24 @@ export default function IdentifyUnified() {
     
     return { __html: html }
   }
+
+  useEffect(() => {
+    document.body.style.backgroundImage = 'url(/Kaseki/images/bluebackground.png)'
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundRepeat = 'no-repeat'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundPosition = 'center'
+    document.body.style.minHeight = '100vh'
+
+    return () => {
+      document.body.style.backgroundImage = ''
+      document.body.style.backgroundSize = ''
+      document.body.style.backgroundRepeat = ''
+      document.body.style.backgroundAttachment = ''
+      document.body.style.backgroundPosition = ''
+      document.body.style.minHeight = ''
+    }
+  }, [])
 
   return (
     <div className="identify-page">

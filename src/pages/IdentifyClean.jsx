@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useLang } from '../i18n'
 import './identify.css'
 
@@ -45,6 +45,24 @@ export default function Identify(){
   }
 
   const sources = result?.sources || []
+
+  useEffect(() => {
+    document.body.style.backgroundImage = 'url(/Kaseki/images/bluebackground.png)'
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundRepeat = 'no-repeat'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundPosition = 'center'
+    document.body.style.minHeight = '100vh'
+
+    return () => {
+      document.body.style.backgroundImage = ''
+      document.body.style.backgroundSize = ''
+      document.body.style.backgroundRepeat = ''
+      document.body.style.backgroundAttachment = ''
+      document.body.style.backgroundPosition = ''
+      document.body.style.minHeight = ''
+    }
+  }, [])
 
   return (
     <div className="container mt-3">

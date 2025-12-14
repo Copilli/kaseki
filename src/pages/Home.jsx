@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Home() {
+  useEffect(() => {
+    document.body.style.backgroundImage = 'url(/Kaseki/images/bluebackground.png)'
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundRepeat = 'no-repeat'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundPosition = 'center'
+    document.body.style.minHeight = '100vh'
+
+    return () => {
+      document.body.style.backgroundImage = ''
+      document.body.style.backgroundSize = ''
+      document.body.style.backgroundRepeat = ''
+      document.body.style.backgroundAttachment = ''
+      document.body.style.backgroundPosition = ''
+      document.body.style.minHeight = ''
+    }
+  }, [])
+
   return (
     <div>
       <header className="py-5 text-center border-bottom">
@@ -18,19 +36,19 @@ export default function Home() {
           <div className="row">
             <div className="col-sm-6">
               <div className="card mb-3">
-                <img src="https://picsum.photos/600/300?random=1" className="card-img-top" alt="placeholder" />
+                <img src="/Kaseki/images/ej.1.jpg" className="card-img-top" alt="placeholder" />
                 <div className="card-body">
-                  <h5 className="card-title">Article 1</h5>
-                  <p className="card-text">Brief summary of article 1.</p>
+                  <h5 className="card-title"></h5>
+                  <p className="card-text"></p>
                 </div>
               </div>
             </div>
             <div className="col-sm-6">
               <div className="card mb-3">
-                <img src="https://picsum.photos/600/300?random=2" className="card-img-top" alt="placeholder" />
+                <img src="/Kaseki/images/ej.2.jpg" className="card-img-top" alt="placeholder" />
                 <div className="card-body">
-                  <h5 className="card-title">Article 2</h5>
-                  <p className="card-text">Resumen breve del artículo 2.</p>
+                  <h5 className="card-title"></h5>
+                  <p className="card-text"></p>
                 </div>
               </div>
             </div>
@@ -101,49 +119,34 @@ export default function Home() {
               {/* Imagen 1 */}
               <div className="card border-0 shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/home-side-1/400/250" 
+                  src="/Kaseki/images/ej.3.jpg" 
                   className="card-img-top" 
                   alt="Imagen 1"
                   style={{objectFit: 'cover', height: '200px'}}
                 />
-                <div className="card-body">
-                  <h6 className="card-title mb-1">Imagen 1</h6>
-                  <p className="card-text small text-muted">
-                    Descripción breve de la imagen 1
-                  </p>
-                </div>
+               
               </div>
 
               {/* Imagen 2 */}
               <div className="card border-0 shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/home-side-2/400/250" 
+                  src="/Kaseki/images/ej.4.jpg" 
                   className="card-img-top" 
                   alt="Imagen 2"
                   style={{objectFit: 'cover', height: '200px'}}
                 />
-                <div className="card-body">
-                  <h6 className="card-title mb-1">Imagen 2</h6>
-                  <p className="card-text small text-muted">
-                    Descripción breve de la imagen 2
-                  </p>
-                </div>
+               
               </div>
 
               {/* Imagen 3 */}
               <div className="card border-0 shadow-sm">
                 <img 
-                  src="https://picsum.photos/seed/home-side-3/400/250" 
+                  src="/Kaseki/images/ej.5.jpg" 
                   className="card-img-top" 
                   alt="Imagen 3"
                   style={{objectFit: 'cover', height: '200px'}}
                 />
-                <div className="card-body">
-                  <h6 className="card-title mb-1">Imagen 3</h6>
-                  <p className="card-text small text-muted">
-                    Descripción breve de la imagen 3
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
