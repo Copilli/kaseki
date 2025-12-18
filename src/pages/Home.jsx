@@ -37,19 +37,13 @@ export default function Home() {
             <div className="col-sm-6">
               <div className="card mb-3">
                 <img src="/Kaseki/images/ej.1.jpg" className="card-img-top" alt="placeholder" />
-                <div className="card-body">
-                  <h5 className="card-title"></h5>
-                  <p className="card-text"></p>
-                </div>
+               
               </div>
             </div>
             <div className="col-sm-6">
               <div className="card mb-3">
                 <img src="/Kaseki/images/ej.2.jpg" className="card-img-top" alt="placeholder" />
-                <div className="card-body">
-                  <h5 className="card-title"></h5>
-                  <p className="card-text"></p>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -77,7 +71,7 @@ export default function Home() {
           <div className="col-lg-8">
             <div className="card border-0 shadow-sm h-100">
               <div className="card-body p-4">
-                <h2 className="mb-4 text-primary">Título del Contenido</h2>
+                <h2 className="mb-4 text-primary">¡Coonoce mas sobre Kaseki!</h2>
                 
                 <p className="lead mb-3">
                   Este es el espacio principal para agregar información extensa. 

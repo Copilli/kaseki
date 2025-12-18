@@ -11,7 +11,7 @@ const initialCards = [
   {
     id: 1,
     name: 'Ana Sandoval',
-    image: '/Kaseki/images/ej.1.jpg',
+    image: '/Kaseki/images/ana.jpg',
     info: 'Diseñadora del equipo Kaseki. Experta en diseño de logos y personajes para la aplicación.'
   },
   {
@@ -23,7 +23,7 @@ const initialCards = [
   {
     id: 3,
     name: 'Gael Casas',
-    image: '/Kaseki/images/ej.3.jpg',
+    image: '/Kaseki/images/gael.jpeg',
     info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
   },
   {
