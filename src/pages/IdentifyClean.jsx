@@ -65,7 +65,21 @@ export default function Identify(){
   }, [])
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-3" style={{position: 'relative', minHeight: '100vh'}}>
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(/Kaseki/images/bluebackground.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        filter: 'blur(1px)',
+        zIndex: -1
+      }}></div>
       <h2>{t('identifyHeading')}</h2>
       <div className="row align-items-start">
         <div className="col-md-4">

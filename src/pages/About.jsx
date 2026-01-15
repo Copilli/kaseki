@@ -34,6 +34,74 @@ const initialCards = [
   }
 ]
 
+// CONFIGURACIÓN: Modifica las imágenes y descripciones para la segunda fila
+const additionalCards = [
+  {
+    id: 0,
+    name: 'Daniel Ornelas',
+    image: '/Kaseki/images/pet.png',
+    info: 'Plataforma innovadora para la identificación de materiales arqueológicos mediante IA.'
+  },
+  {
+    id: 1,
+    name: 'Hilary Casillas',
+    image: '/Kaseki/images/ej.2.jpg',
+    info: 'Utilizamos inteligencia artificial y aprendizaje automático para análisis precisos.'
+  },
+  {
+    id: 2,
+    name: 'Helaman Gonzalez',
+    image: '/Kaseki/images/ej.4.jpg',
+    info: 'Herramientas educativas para estudiantes y profesionales de arqueología.'
+  },
+  {
+    id: 3,
+    name: 'Valentina Barajas',
+    image: '/Kaseki/images/ej.5.jpg',
+    info: 'Trabajamos en conjunto con instituciones académicas y museos.'
+  },
+  {
+    id: 4,
+    name: 'Mia Mendoza',
+    image: '/Kaseki/images/ej.1.jpg',
+    info: 'Desarrollamos soluciones innovadoras para la preservación del patrimonio cultural.'
+  }
+]
+
+// CONFIGURACIÓN: Modifica las imágenes y descripciones para la tercera fila
+const featuresCards = [
+  {
+    id: 0,
+    name: 'Jair Zendejas',
+    image: '/Kaseki/images/pet.png',
+    info: 'Identificación automática de materiales mediante algoritmos de inteligencia artificial.'
+  },
+  {
+    id: 1,
+    name: 'Naomi Oceguera',
+    image: '/Kaseki/images/ej.2.jpg',
+    info: 'Amplia colección de datos sobre materiales arqueológicos históricos.'
+  },
+  {
+    id: 2,
+    name: 'Amahia Gomez',
+    image: '/Kaseki/images/ej.4.jpg',
+    info: 'Herramientas accesibles para investigadores y estudiantes de todo el mundo.'
+  },
+  {
+    id: 3,
+    name: 'Precisión',
+    image: '/Kaseki/images/ej.5.jpg',
+    info: 'Resultados precisos respaldados por investigación científica.'
+  },
+  {
+    id: 4,
+    name: 'Colaborativo',
+    image: '/Kaseki/images/ej.1.jpg',
+    info: 'Plataforma que fomenta la colaboración entre expertos arqueológicos.'
+  }
+]
+
 export default function About(){
   const cards = initialCards
 
@@ -56,7 +124,21 @@ export default function About(){
   }, [])
 
   return (
-    <div>
+    <div style={{position: 'relative', minHeight: '100vh'}}>
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(/Kaseki/images/pinkbackground.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        filter: 'blur(1px)',
+        zIndex: -1
+      }}></div>
       <h2 className="text-center mb-4">Acerca de Nosotros</h2>
       
       {/* Tarjeta hero grande con imagen y texto */}
@@ -91,6 +173,53 @@ export default function About(){
       <h3 className="text-center mb-4">Nuestro Equipo</h3>
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card) => (
+          <div className="col" key={card.id}>
+            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
+              <div 
+                className="card-img-top" 
+                style={{
+                  backgroundImage:`url(${card.image})`,
+                  height: '60%',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              ></div>
+              <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
+                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
+                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sección adicional con información del proyecto */}
+      
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" style={{marginTop: '2rem'}}>
+        {additionalCards.map((card) => (
+          <div className="col" key={card.id}>
+            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
+              <div 
+                className="card-img-top" 
+                style={{
+                  backgroundImage:`url(${card.image})`,
+                  height: '60%',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              ></div>
+              <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
+                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
+                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tercera fila de tarjetas */}
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" style={{marginTop: '2rem'}}>
+        {featuresCards.map((card) => (
           <div className="col" key={card.id}>
             <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
               <div 

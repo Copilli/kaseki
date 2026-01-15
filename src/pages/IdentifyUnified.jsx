@@ -184,7 +184,21 @@ export default function IdentifyUnified() {
   }, [])
 
   return (
-    <div className="identify-page">
+    <div className="identify-page" style={{position: 'relative', minHeight: '100vh'}}>
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(/Kaseki/images/bluebackground.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        filter: 'blur(1px)',
+        zIndex: -1
+      }}></div>
       <main className="container py-4">
         {/* Selector de Modo */}
         <div className="d-flex justify-content-center mb-5">

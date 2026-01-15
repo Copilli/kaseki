@@ -20,8 +20,22 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
-      <header className="py-5 text-center border-bottom">
+    <div style={{position: 'relative', minHeight: '100vh'}}>
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(/Kaseki/images/bluebackground.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        filter: 'blur(1px)',
+        zIndex: -1
+      }}></div>
+      <header className="py-5 text-center border-bottom" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
         <div className="container">
           <h1 className="display-5">KASEKI</h1>
           <p className="lead">Resources and news about the identification of archaeological materials.</p>
@@ -35,13 +49,13 @@ export default function Home() {
 
           <div className="row">
             <div className="col-sm-6">
-              <div className="card mb-3">
+              <div className="card mb-3" style={{ filter: 'blur(0.5px)' }}>
                 <img src="/Kaseki/images/ej.1.jpg" className="card-img-top" alt="placeholder" />
                
               </div>
             </div>
             <div className="col-sm-6">
-              <div className="card mb-3">
+              <div className="card mb-3" style={{ filter: 'blur(0.5px)' }}>
                 <img src="/Kaseki/images/ej.2.jpg" className="card-img-top" alt="placeholder" />
                 
               </div>
@@ -69,33 +83,38 @@ export default function Home() {
         <div className="row g-4">
           {/* Área de contenido principal */}
           <div className="col-lg-8">
-            <div className="card border-0 shadow-sm h-100">
+            <div className="card border-0 shadow-sm h-100" style={{ filter: 'blur(0.5px)' }}>
               <div className="card-body p-4">
                 <h2 className="mb-4 text-primary">¡Coonoce mas sobre Kaseki!</h2>
                 
                 <p className="lead mb-3">
-                  Este es el espacio principal para agregar información extensa. 
-                  Puedes escribir varios párrafos, agregar detalles importantes sobre tu proyecto,
-                  noticias, actualizaciones o cualquier contenido relevante.
+                Introducción
+Esta aplicación está diseñada para facilitar la comprensión de los procesos fundamentales de la documentación arqueológica. Aquí podrás encontrar guías especializadas para identificar materiales y estructuras antiguas.
+El usuario podrá analizar imágenes de materiales arqueológicos, reconocer las técnicas con las que fueron elaborados, sus elementos visibles, sus posibles periodos o fechas y la civilización a la que pertenecen. Es importante aclarar que esta sección se enfoca en la “arquitectura” o descripción técnica del objeto, mas no en su contexto histórico.
+Cada apartado ofrece contenido confiable, accesible y organizado, ideal para estudiantes y usuarios interesados en comprender cómo registrar información de un objeto arqueológico y qué métodos permiten identificar sus características.
+
                 </p>
                 
                 <p className="mb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Hipótesis 
+Debemos hacer que la aplicación pueda detectar los materiales que le mostramos a simple vista con la identificación de objetos arqueológicos de IA, incluido el diseño de la aplicación ya finalizado con toda la información sobre la arqueología obtenida y la IA de identificación en la aplicación.
+
                 </p>
                 
                 <p className="mb-3">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                  culpa qui officia deserunt mollit anim id est laborum.
+                  PROCEDIMIENTO:
+1. Modificación de robots e inicio del desarrollo de la app.
+2. Inician pruebas de identificación en la app y en el robot.
+3. Terminar ambos proyectos para si poder presentarlos a la competencia. 
+
                 </p>
 
                 <h4 className="mt-4 mb-3 text-primary">Subtítulo Adicional</h4>
                 <p className="mb-3">
-                  Aquí puedes continuar agregando más información. Esta sección es completamente 
-                  editable desde el código en VS Code. Puedes agregar más párrafos, listas, o 
-                  cualquier otro contenido HTML que necesites.
+                  RESULTADOS:
+Tenemos tanto la aplicación como el robot para poder compartirlo y llevarlo a cabo a la competición, donde mostramos lo que estuvimos haciendo, tanto el robot como la aplicación, donde mostraremos las mejores de estos dos prototipos creados por el equipo detrás de esto.
+
+
                 </p>
 
                 <ul className="list-unstyled">
@@ -111,7 +130,7 @@ export default function Home() {
           <div className="col-lg-4">
             <div className="d-flex flex-column gap-3">
               {/* Imagen 1 */}
-              <div className="card border-0 shadow-sm">
+              <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
                   src="/Kaseki/images/ej.3.jpg" 
                   className="card-img-top" 
@@ -122,7 +141,7 @@ export default function Home() {
               </div>
 
               {/* Imagen 2 */}
-              <div className="card border-0 shadow-sm">
+              <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
                   src="/Kaseki/images/ej.4.jpg" 
                   className="card-img-top" 
@@ -133,7 +152,7 @@ export default function Home() {
               </div>
 
               {/* Imagen 3 */}
-              <div className="card border-0 shadow-sm">
+              <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
                   src="/Kaseki/images/ej.5.jpg" 
                   className="card-img-top" 
