@@ -5,31 +5,31 @@ const initialCards = [
   {
     id: 0,
     name: 'Regina Garcia',
-    image: '/Kaseki/images/regina.jpeg',
+    image: '/kaseki/images/regina.jpeg',
     info: 'Diseñadora del equipo Kaseki. Especialista en diseño de fondos para la aplicación.'
   },
   {
     id: 1,
     name: 'Ana Sandoval',
-    image: '/Kaseki/images/ana.jpg',
+    image: '/kaseki/images/ana.jpg',
     info: 'Diseñadora del equipo Kaseki. Experta en diseño de logos y personajes para la aplicación.'
   },
   {
     id: 2,
     name: 'Diego Velazquez',
-    image: '/Kaseki/images/diego.jpg',
+    image: '/kaseki/images/diego.jpg',
     info: 'Mecánico y programador del equipo Kaseki. Experto en programación de modelos robóticos para Lego League.'
   },
   {
     id: 3,
     name: 'Gael Casas',
-    image: '/Kaseki/images/gael.jpeg',
+    image: '/kaseki/images/gael.jpeg',
     info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
   },
   {
     id: 4,
     name: 'Yareni Saavedra',
-    image: '/Kaseki/images/yare.jpeg',
+    image: '/kaseki/images/yare.jpeg',
     info: 'Programadora líder del equipo Kaseki. Especialista en desarrollo de aplicaciones y programación.'
   }
 ]
@@ -39,31 +39,31 @@ const additionalCards = [
   {
     id: 0,
     name: 'Daniel Ornelas',
-    image: '/Kaseki/images/pet.png',
+    image: '/kaseki/images/pet.png',
     info: 'Plataforma innovadora para la identificación de materiales arqueológicos mediante IA.'
   },
   {
     id: 1,
     name: 'Hilary Casillas',
-    image: '/Kaseki/images/ej.2.jpg',
+    image: '/kaseki/images/ej.2.jpg',
     info: 'Utilizamos inteligencia artificial y aprendizaje automático para análisis precisos.'
   },
   {
     id: 2,
     name: 'Helaman Gonzalez',
-    image: '/Kaseki/images/ej.4.jpg',
+    image: '/kaseki/images/ej.4.jpg',
     info: 'Herramientas educativas para estudiantes y profesionales de arqueología.'
   },
   {
     id: 3,
     name: 'Valentina Barajas',
-    image: '/Kaseki/images/ej.5.jpg',
+    image: '/kaseki/images/ej.5.jpg',
     info: 'Trabajamos en conjunto con instituciones académicas y museos.'
   },
   {
     id: 4,
     name: 'Mia Mendoza',
-    image: '/Kaseki/images/ej.1.jpg',
+    image: '/kaseki/images/ej.1.jpg',
     info: 'Desarrollamos soluciones innovadoras para la preservación del patrimonio cultural.'
   }
 ]
@@ -73,31 +73,31 @@ const featuresCards = [
   {
     id: 0,
     name: 'Jair Zendejas',
-    image: '/Kaseki/images/pet.png',
+    image: '/kaseki/images/pet.png',
     info: 'Identificación automática de materiales mediante algoritmos de inteligencia artificial.'
   },
   {
     id: 1,
     name: 'Naomi Oceguera',
-    image: '/Kaseki/images/ej.2.jpg',
+    image: '/kaseki/images/ej.2.jpg',
     info: 'Amplia colección de datos sobre materiales arqueológicos históricos.'
   },
   {
     id: 2,
     name: 'Amahia Gomez',
-    image: '/Kaseki/images/ej.4.jpg',
+    image: '/kaseki/images/ej.4.jpg',
     info: 'Herramientas accesibles para investigadores y estudiantes de todo el mundo.'
   },
   {
     id: 3,
     name: 'Precisión',
-    image: '/Kaseki/images/ej.5.jpg',
+    image: '/kaseki/images/ej.5.jpg',
     info: 'Resultados precisos respaldados por investigación científica.'
   },
   {
     id: 4,
     name: 'Colaborativo',
-    image: '/Kaseki/images/ej.1.jpg',
+    image: '/kaseki/images/ej.1.jpg',
     info: 'Plataforma que fomenta la colaboración entre expertos arqueológicos.'
   }
 ]
@@ -106,7 +106,7 @@ export default function About(){
   const cards = initialCards
 
   useEffect(() => {
-    document.body.style.backgroundImage = 'url(/Kaseki/images/pinkbackground.png)'
+    document.body.style.backgroundImage = 'url(/kaseki/images/pinkbackground.png)'
     document.body.style.backgroundSize = 'cover'
     document.body.style.backgroundRepeat = 'no-repeat'
     document.body.style.backgroundAttachment = 'fixed'
@@ -131,7 +131,7 @@ export default function About(){
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundImage: 'url(/Kaseki/images/pinkbackground.png)',
+        backgroundImage: 'url(/kaseki/images/pinkbackground.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
@@ -160,7 +160,7 @@ export default function About(){
           </div>
           <div className="col-md-6">
             <img 
-              src="/Kaseki/images/pet2.png" 
+              src="/kaseki/images/pet2.png" 
               className="img-fluid rounded-end" 
               alt="Artefactos arqueológicos"
               style={{height: '100%', objectFit: 'cover', minHeight: '150px'}}

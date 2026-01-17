@@ -6,7 +6,7 @@ import './styles.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Kaseki">
+    <BrowserRouter basename="/kaseki">
       <App />
     </BrowserRouter>
   </React.StrictMode>

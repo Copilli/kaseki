@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 export default function Home() {
   useEffect(() => {
-    document.body.style.backgroundImage = 'url(/Kaseki/images/bluebackground.png)'
+    document.body.style.backgroundImage = 'url(/kaseki/images/bluebackground.png)'
     document.body.style.backgroundSize = 'cover'
     document.body.style.backgroundRepeat = 'no-repeat'
     document.body.style.backgroundAttachment = 'fixed'
@@ -27,7 +27,7 @@ export default function Home() {
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundImage: 'url(/Kaseki/images/bluebackground.png)',
+        backgroundImage: 'url(/kaseki/images/bluebackground.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
@@ -50,13 +50,13 @@ export default function Home() {
           <div className="row">
             <div className="col-sm-6">
               <div className="card mb-3" style={{ filter: 'blur(0.5px)' }}>
-                <img src="/Kaseki/images/ej.1.jpg" className="card-img-top" alt="placeholder" />
+                <img src="/kaseki/images/ej.1.jpg" className="card-img-top" alt="placeholder" />
                
               </div>
             </div>
             <div className="col-sm-6">
               <div className="card mb-3" style={{ filter: 'blur(0.5px)' }}>
-                <img src="/Kaseki/images/ej.2.jpg" className="card-img-top" alt="placeholder" />
+                <img src="/kaseki/images/ej.2.jpg" className="card-img-top" alt="placeholder" />
                 
               </div>
             </div>
@@ -132,7 +132,7 @@ Tenemos tanto la aplicación como el robot para poder compartirlo y llevarlo a c
               {/* Imagen 1 */}
               <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
-                  src="/Kaseki/images/ej.3.jpg" 
+                  src="/kaseki/images/ej.3.jpg" 
                   className="card-img-top" 
                   alt="Imagen 1"
                   style={{objectFit: 'cover', height: '200px'}}
@@ -143,7 +143,7 @@ Tenemos tanto la aplicación como el robot para poder compartirlo y llevarlo a c
               {/* Imagen 2 */}
               <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
-                  src="/Kaseki/images/ej.4.jpg" 
+                  src="/kaseki/images/ej.4.jpg" 
                   className="card-img-top" 
                   alt="Imagen 2"
                   style={{objectFit: 'cover', height: '200px'}}
@@ -154,7 +154,7 @@ Tenemos tanto la aplicación como el robot para poder compartirlo y llevarlo a c
               {/* Imagen 3 */}
               <div className="card border-0 shadow-sm" style={{ filter: 'blur(0.5px)' }}>
                 <img 
-                  src="/Kaseki/images/ej.5.jpg" 
+                  src="/kaseki/images/ej.5.jpg" 
                   className="card-img-top" 
                   alt="Imagen 3"
                   style={{objectFit: 'cover', height: '200px'}}

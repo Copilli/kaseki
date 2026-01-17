@@ -47,7 +47,7 @@ export default function Identify(){
   const sources = result?.sources || []
 
   useEffect(() => {
-    document.body.style.backgroundImage = 'url(/Kaseki/images/bluebackground.png)'
+    document.body.style.backgroundImage = 'url(/kaseki/images/bluebackground.png)'
     document.body.style.backgroundSize = 'cover'
     document.body.style.backgroundRepeat = 'no-repeat'
     document.body.style.backgroundAttachment = 'fixed'
@@ -72,7 +72,7 @@ export default function Identify(){
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundImage: 'url(/Kaseki/images/bluebackground.png)',
+        backgroundImage: 'url(/kaseki/images/bluebackground.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
