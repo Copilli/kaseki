@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import About from './pages/About'
-import IdentifyUnified from './pages/IdentifyUnified'
+import Identify from './pages/Identify'
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/analyze" element={<IdentifyUnified />} />
+          <Route path="/analyze" element={<Identify />} />
         </Routes>
       </main>
     </div>

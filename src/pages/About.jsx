@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
-// CONFIGURACIÓN: Modifica las imágenes y descripciones desde aquí
-const initialCards = [
+// CONFIGURACIÓN: Lista única de tarjetas (un solo objeto de configuración)
+const cardsData = [
   {
     id: 0,
     name: 'Regina Garcia',
@@ -10,100 +10,62 @@ const initialCards = [
   },
   {
     id: 1,
-    name: 'Ana Sandoval',
-    image: '/kaseki/images/ana.jpg',
-    info: 'Diseñadora del equipo Kaseki. Experta en diseño de logos y personajes para la aplicación.'
-  },
-  {
-    id: 2,
     name: 'Diego Velazquez',
     image: '/kaseki/images/diego.jpg',
     info: 'Mecánico y programador del equipo Kaseki. Experto en programación de modelos robóticos para Lego League.'
   },
   {
-    id: 3,
+    id: 2,
     name: 'Gael Casas',
     image: '/kaseki/images/gael.jpeg',
     info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
   },
   {
-    id: 4,
+    id: 3,
     name: 'Yareni Saavedra',
     image: '/kaseki/images/yare.jpeg',
     info: 'Programadora líder del equipo Kaseki. Especialista en desarrollo de aplicaciones y programación.'
-  }
-]
-
-// CONFIGURACIÓN: Modifica las imágenes y descripciones para la segunda fila
-const additionalCards = [
+  },
   {
-    id: 0,
+    id: 4,
     name: 'Daniel Ornelas',
     image: '/kaseki/images/pet.png',
     info: 'Plataforma innovadora para la identificación de materiales arqueológicos mediante IA.'
   },
   {
-    id: 1,
+    id: 5,
     name: 'Hilary Casillas',
     image: '/kaseki/images/ej.2.jpg',
     info: 'Utilizamos inteligencia artificial y aprendizaje automático para análisis precisos.'
   },
   {
-    id: 2,
+    id: 6,
     name: 'Helaman Gonzalez',
     image: '/kaseki/images/ej.4.jpg',
     info: 'Herramientas educativas para estudiantes y profesionales de arqueología.'
   },
   {
-    id: 3,
+    id: 7,
     name: 'Valentina Barajas',
     image: '/kaseki/images/ej.5.jpg',
     info: 'Trabajamos en conjunto con instituciones académicas y museos.'
   },
   {
-    id: 4,
-    name: 'Mia Mendoza',
-    image: '/kaseki/images/ej.1.jpg',
-    info: 'Desarrollamos soluciones innovadoras para la preservación del patrimonio cultural.'
-  }
-]
-
-// CONFIGURACIÓN: Modifica las imágenes y descripciones para la tercera fila
-const featuresCards = [
-  {
-    id: 0,
-    name: 'Jair Zendejas',
-    image: '/kaseki/images/pet.png',
-    info: 'Identificación automática de materiales mediante algoritmos de inteligencia artificial.'
-  },
-  {
-    id: 1,
+    id: 8,
     name: 'Naomi Oceguera',
     image: '/kaseki/images/ej.2.jpg',
     info: 'Amplia colección de datos sobre materiales arqueológicos históricos.'
   },
   {
-    id: 2,
+    id: 9,
     name: 'Amahia Gomez',
     image: '/kaseki/images/ej.4.jpg',
     info: 'Herramientas accesibles para investigadores y estudiantes de todo el mundo.'
-  },
-  {
-    id: 3,
-    name: 'Precisión',
-    image: '/kaseki/images/ej.5.jpg',
-    info: 'Resultados precisos respaldados por investigación científica.'
-  },
-  {
-    id: 4,
-    name: 'Colaborativo',
-    image: '/kaseki/images/ej.1.jpg',
-    info: 'Plataforma que fomenta la colaboración entre expertos arqueológicos.'
   }
 ]
 
 export default function About(){
-  const cards = initialCards
+  const cards = cardsData
 
   useEffect(() => {
     document.body.style.backgroundImage = 'url(/kaseki/images/pinkbackground.png)'
@@ -136,13 +98,13 @@ export default function About(){
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
-        filter: 'blur(1px)',
+        filter: 'blur(8px)',
         zIndex: -1
       }}></div>
       <h2 className="text-center mb-4">Acerca de Nosotros</h2>
       
       {/* Tarjeta hero grande con imagen y texto */}
-      <div className="card mb-5 shadow-lg border-0">
+      <div className="card mb-5 shadow-lg border-0" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
         <div className="row g-0">
           <div className="col-md-6">
             <div className="card-body p-5 d-flex flex-column justify-content-center h-100">
@@ -158,23 +120,23 @@ export default function About(){
               </p>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 d-flex align-items-center justify-content-center p-3">
             <img 
               src="/kaseki/images/pet2.png" 
               className="img-fluid rounded-end" 
               alt="Artefactos arqueológicos"
-              style={{height: '100%', objectFit: 'cover', minHeight: '150px'}}
+              style={{ width: '100%', height: 'auto', maxHeight: '35vh', objectFit: 'contain' }}
             />
           </div>
         </div>
       </div>
 
-      {/* Sección de miembros del equipo */}
+      {/* Sección de miembros y proyecto (unificada) */}
       <h3 className="text-center mb-4">Nuestro Equipo</h3>
       <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
-        {cards.map((card) => (
-          <div className="col" key={card.id}>
-            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
+        {cards.map((card, idx) => (
+          <div className="col" key={`${card.name}-${idx}`}>
+            <div className="card about-card shadow-sm" style={{ aspectRatio: '1/1', background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', overflow: 'hidden' }}>
               <div 
                 className="card-img-top" 
                 style={{
@@ -185,55 +147,8 @@ export default function About(){
                 }}
               ></div>
               <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
-                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
-                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Sección adicional con información del proyecto */}
-      
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" style={{marginTop: '2rem'}}>
-        {additionalCards.map((card) => (
-          <div className="col" key={card.id}>
-            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
-              <div 
-                className="card-img-top" 
-                style={{
-                  backgroundImage:`url(${card.image})`,
-                  height: '60%',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              ></div>
-              <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
-                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
-                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Tercera fila de tarjetas */}
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" style={{marginTop: '2rem'}}>
-        {featuresCards.map((card) => (
-          <div className="col" key={card.id}>
-            <div className="card about-card shadow-sm" style={{aspectRatio: '1/1'}}>
-              <div 
-                className="card-img-top" 
-                style={{
-                  backgroundImage:`url(${card.image})`,
-                  height: '60%',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              ></div>
-              <div className="card-body d-flex flex-column justify-content-center p-2" style={{height: '40%'}}>
-                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem'}}>{card.name}</h6>
-                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2'}}>{card.info}</p>
+                <h6 className="card-title fw-bold mb-1" style={{fontSize: '0.85rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{card.name}</h6>
+                <p className="card-text mb-0" style={{fontSize: '0.7rem', lineHeight: '1.2', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>{card.info}</p>
               </div>
             </div>
           </div>

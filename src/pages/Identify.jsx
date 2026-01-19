@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { getGeminiURL } from '../config'
+import './identify.css'
 
-export default function IdentifyUnified() {
+export default function Identify() {
   const [currentMode, setCurrentMode] = useState('materials')
   const [selectedImage, setSelectedImage] = useState(null)
   const [results, setResults] = useState([])
@@ -196,10 +197,10 @@ export default function IdentifyUnified() {
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
-        filter: 'blur(1px)',
+        filter: 'blur(8px)',
         zIndex: -1
       }}></div>
-      <main className="container py-4">
+      <main className=" py-4">
         {/* Selector de Modo */}
         <div className="d-flex justify-content-center mb-5">
           <div className="btn-group mode-selector shadow-sm" role="group">
@@ -218,11 +219,13 @@ export default function IdentifyUnified() {
           </div>
         </div>
 
+        <div className="card mb-4 shadow-lg border-0" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+          <div className="card-body">
         <div className="row g-4">
           {/* Panel Izquierdo */}
           <div className="col-lg-4">
             {/* Tarjeta de Contexto */}
-            <div className="card border-start border-warning border-4 mb-4">
+            <div className="card border-start border-warning border-4 mb-4" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
               <div className="card-body">
                 <h2 className="card-title h5 fw-bold">{modes[currentMode].title}</h2>
                 <p className="card-text text-muted small">{modes[currentMode].desc}</p>
@@ -230,7 +233,7 @@ export default function IdentifyUnified() {
             </div>
 
             {/* Área de Carga */}
-            <div className="card">
+            <div className="card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
               <div className="card-body">
                 <div className="upload-preview-box mb-3">
                   {selectedImage ? (
@@ -273,9 +276,9 @@ export default function IdentifyUnified() {
 
           {/* Panel Derecho */}
           <div className="col-lg-8">
-            <div className="card results-card">
+            <div className="card results-card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
               {/* Header */}
-              <div className="card-header bg-light d-flex justify-content-between align-items-center">
+              <div className="card-header d-flex justify-content-between align-items-center" style={{ background: 'rgba(248,249,250,0.7)', borderBottom: '1px solid rgba(0,0,0,0.125)' }}>
                 <h3 className="mb-0 fw-bold">
                   <i className="fa-solid fa-list-check text-warning me-2"></i>Informe Detallado
                 </h3>
@@ -318,10 +321,10 @@ export default function IdentifyUnified() {
                       const cropSrc = getCropFromCoordinates(item.box_2d)
                       
                       return (
-                        <div key={index} className="card mb-3 result-item">
+                        <div key={index} className="card mb-3 result-item" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
                           <div className="row g-0">
                             {/* Snapshot */}
-                            <div className="col-md-3 bg-light border-end">
+                            <div className="col-md-3 border-end" style={{ background: 'rgba(248,249,250,0.7)' }}>
                               <div className="p-3">
                                 <p className="text-uppercase text-muted small fw-bold text-center mb-2">Detalle Visual</p>
                                 <div className="snapshot-container">
@@ -359,6 +362,8 @@ export default function IdentifyUnified() {
                 )}
               </div>
             </div>
+          </div>
+        </div>
           </div>
         </div>
       </main>
