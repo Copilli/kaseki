@@ -221,149 +221,149 @@ export default function Identify() {
 
         <div className="card mb-4 shadow-lg border-0" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
           <div className="card-body">
-        <div className="row g-4">
-          {/* Panel Izquierdo */}
-          <div className="col-lg-4">
-            {/* Tarjeta de Contexto */}
-            <div className="card border-start border-warning border-4 mb-4" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
-              <div className="card-body">
-                <h2 className="card-title h5 fw-bold">{modes[currentMode].title}</h2>
-                <p className="card-text text-muted small">{modes[currentMode].desc}</p>
-              </div>
-            </div>
-
-            {/* Área de Carga */}
-            <div className="card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
-              <div className="card-body">
-                <div className="upload-preview-box mb-3">
-                  {selectedImage ? (
-                    <img src={selectedImage} alt="Vista previa" className="img-fluid" />
-                  ) : (
-                    <div className="text-center p-4">
-                      <i className="fa-solid fa-camera-retro fs-1 text-muted mb-2 d-block"></i>
-                      <p className="text-muted small text-uppercase fw-semibold">Subir Fotografía</p>
-                    </div>
-                  )}
+            <div className="row g-4">
+              {/* Panel Izquierdo */}
+              <div className="col-lg-4">
+                {/* Tarjeta de Contexto */}
+                <div className="card border-start border-warning border-4 mb-4" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+                  <div className="card-body">
+                    <h2 className="card-title h5 fw-bold">{modes[currentMode].title}</h2>
+                    <p className="card-text text-muted small">{modes[currentMode].desc}</p>
+                  </div>
                 </div>
 
-                <div className="d-grid gap-2">
-                  <input 
-                    type="file" 
-                    onChange={handleImageUpload}
-                    className="d-none" 
-                    accept="image/*"
-                    id="image-upload"
-                  />
-                  <label 
-                    htmlFor="image-upload" 
-                    className="btn btn-outline-secondary custom-file-upload"
-                  >
-                    <i className="fa-solid fa-folder-open me-2"></i>Seleccionar Archivo
-                  </label>
-                  
-                  <button 
-                    onClick={analyzeImage}
-                    disabled={!selectedImage || loading}
-                    className="btn btn-dark btn-lg"
-                  >
-                    <span>Ejecutar Análisis</span>
-                    <i className="fa-solid fa-magnifying-glass ms-2"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Panel Derecho */}
-          <div className="col-lg-8">
-            <div className="card results-card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
-              {/* Header */}
-              <div className="card-header d-flex justify-content-between align-items-center" style={{ background: 'rgba(248,249,250,0.7)', borderBottom: '1px solid rgba(0,0,0,0.125)' }}>
-                <h3 className="mb-0 fw-bold">
-                  <i className="fa-solid fa-list-check text-warning me-2"></i>Informe Detallado
-                </h3>
-                <span className="badge bg-white text-dark border">
-                  {results.length > 0 ? `${results.length} Hallazgos` : 'Esperando análisis...'}
-                </span>
-              </div>
-              
-              <div className="card-body results-body overflow-auto">
-                {/* Estado Inicial */}
-                {!loading && results.length === 0 && !error && (
-                  <div className="text-center text-muted py-5">
-                    <i className="fa-brands fa-searchengin display-1 opacity-25 d-block mb-3"></i>
-                    <p className="fs-5">El informe arqueológico aparecerá aquí</p>
-                  </div>
-                )}
-
-                {/* Loader */}
-                {loading && (
-                  <div className="text-center py-5">
-                    <div className="spinner-border text-warning mb-3" role="status">
-                      <span className="visually-hidden">Cargando...</span>
-                    </div>
-                    <h4 className="fw-bold">Analizando artefacto...</h4>
-                    <p className="text-muted">Identificando patrones y generando recortes de detalle.</p>
-                  </div>
-                )}
-
-                {/* Error */}
-                {error && (
-                  <div className="alert alert-danger border-start border-danger border-4" role="alert">
-                    <strong>Error:</strong> {error}
-                  </div>
-                )}
-
-                {/* Resultados */}
-                {results.length > 0 && (
-                  <div className="results-list">
-                    {results.map((item, index) => {
-                      const cropSrc = getCropFromCoordinates(item.box_2d)
-                      
-                      return (
-                        <div key={index} className="card mb-3 result-item" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
-                          <div className="row g-0">
-                            {/* Snapshot */}
-                            <div className="col-md-3 border-end" style={{ background: 'rgba(248,249,250,0.7)' }}>
-                              <div className="p-3">
-                                <p className="text-uppercase text-muted small fw-bold text-center mb-2">Detalle Visual</p>
-                                <div className="snapshot-container">
-                                  <img 
-                                    src={cropSrc} 
-                                    className="snapshot-img" 
-                                    alt="Zoom detalle"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Información */}
-                            <div className="col-md-9">
-                              <div className="card-body">
-                                <div className="d-flex align-items-center gap-2 mb-3">
-                                  <span className="badge bg-warning text-dark">
-                                    {index + 1}
-                                  </span>
-                                  <h3 className="mb-0 fw-bold border-bottom pb-2 flex-grow-1">
-                                    {item.titulo}
-                                  </h3>
-                                </div>
-                                <div 
-                                  className="content-markdown"
-                                  dangerouslySetInnerHTML={renderMarkdown(item.contenido_markdown)}
-                                />
-                              </div>
-                            </div>
-                          </div>
+                {/* Área de Carga */}
+                <div className="card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+                  <div className="card-body">
+                    <div className="upload-preview-box mb-3">
+                      {selectedImage ? (
+                        <img src={selectedImage} alt="Vista previa" className="img-fluid" />
+                      ) : (
+                        <div className="text-center p-4">
+                          <i className="fa-solid fa-camera-retro fs-1 text-muted mb-2 d-block"></i>
+                          <p className="text-muted small text-uppercase fw-semibold">Subir Fotografía</p>
                         </div>
-                      )
-                    })}
+                      )}
+                    </div>
+
+                    <div className="d-grid gap-2">
+                      <input 
+                        type="file" 
+                        onChange={handleImageUpload}
+                        className="d-none" 
+                        accept="image/*"
+                        id="image-upload"
+                      />
+                      <label 
+                        htmlFor="image-upload" 
+                        className="btn btn-outline-secondary custom-file-upload"
+                      >
+                        <i className="fa-solid fa-folder-open me-2"></i>Seleccionar Archivo
+                      </label>
+                      
+                      <button 
+                        onClick={analyzeImage}
+                        disabled={!selectedImage || loading}
+                        className="btn btn-dark btn-lg"
+                      >
+                        <span>Ejecutar Análisis</span>
+                        <i className="fa-solid fa-magnifying-glass ms-2"></i>
+                      </button>
+                    </div>
                   </div>
-                )}
+                </div>
+              </div>
+
+              {/* Panel Derecho */}
+              <div className="col-lg-8">
+                <div className="card results-card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+                  {/* Header */}
+                  <div className="card-header d-flex justify-content-between align-items-center" style={{ background: 'rgba(248,249,250,0.7)', borderBottom: '1px solid rgba(0,0,0,0.125)' }}>
+                    <h3 className="mb-0 fw-bold">
+                      <i className="fa-solid fa-list-check text-warning me-2"></i>Informe Detallado
+                    </h3>
+                    <span className="badge bg-white text-dark border">
+                      {results.length > 0 ? `${results.length} Hallazgos` : 'Esperando análisis...'}
+                    </span>
+                  </div>
+                  
+                  <div className="card-body results-body overflow-auto">
+                    {/* Estado Inicial */}
+                    {!loading && results.length === 0 && !error && (
+                      <div className="text-center text-muted py-5">
+                        <i className="fa-brands fa-searchengin display-1 opacity-25 d-block mb-3"></i>
+                        <p className="fs-5">El informe arqueológico aparecerá aquí</p>
+                      </div>
+                    )}
+
+                    {/* Loader */}
+                    {loading && (
+                      <div className="text-center py-5">
+                        <div className="spinner-border text-warning mb-3" role="status">
+                          <span className="visually-hidden">Cargando...</span>
+                        </div>
+                        <h4 className="fw-bold">Analizando artefacto...</h4>
+                        <p className="text-muted">Identificando patrones y generando recortes de detalle.</p>
+                      </div>
+                    )}
+
+                    {/* Error */}
+                    {error && (
+                      <div className="alert alert-danger border-start border-danger border-4" role="alert">
+                        <strong>Error:</strong> {error}
+                      </div>
+                    )}
+
+                    {/* Resultados */}
+                    {results.length > 0 && (
+                      <div className="results-list">
+                        {results.map((item, index) => {
+                          const cropSrc = getCropFromCoordinates(item.box_2d)
+                          
+                          return (
+                            <div key={index} className="card mb-3 result-item" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+                              <div className="row g-0">
+                                {/* Snapshot */}
+                                <div className="col-md-3 border-end" style={{ background: 'rgba(248,249,250,0.7)' }}>
+                                  <div className="p-3">
+                                    <p className="text-uppercase text-muted small fw-bold text-center mb-2">Detalle Visual</p>
+                                    <div className="snapshot-container">
+                                      <img 
+                                        src={cropSrc} 
+                                        className="snapshot-img" 
+                                        alt="Zoom detalle"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Información */}
+                                <div className="col-md-9">
+                                  <div className="card-body">
+                                    <div className="d-flex align-items-center gap-2 mb-3">
+                                      <span className="badge bg-warning text-dark">
+                                        {index + 1}
+                                      </span>
+                                      <h3 className="mb-0 fw-bold border-bottom pb-2 flex-grow-1">
+                                        {item.titulo}
+                                      </h3>
+                                    </div>
+                                    <div 
+                                      className="content-markdown"
+                                      dangerouslySetInnerHTML={renderMarkdown(item.contenido_markdown)}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
           </div>
         </div>
       </main>
