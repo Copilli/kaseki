@@ -48,6 +48,9 @@ export default function NavBar() {
               <NavLink className="nav-link" to="/analyze">Análisis Arqueológico</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/galeria">Galería</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/about">Acerca de Nosotros</NavLink>
             </li>
           </ul>

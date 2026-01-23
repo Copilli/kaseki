@@ -28,7 +28,7 @@ const cardsData = [
   },
   {
     id: 4,
-    name: 'Daniel Ornelas',
+    name: 'Ana Sandoval',
     image: '/kaseki/images/pet.png',
     info: 'Plataforma innovadora para la identificación de materiales arqueológicos mediante IA.'
   },
