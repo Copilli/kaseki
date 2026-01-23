@@ -28,39 +28,39 @@ const cardsData = [
   },
   {
     id: 4,
-    name: 'Ana Sandoval',
+    name: 'Daniel Ornelas',
     image: '/kaseki/images/pet.png',
-    info: 'Plataforma innovadora para la identificación de materiales arqueológicos mediante IA.'
+    info: 'Constructor y diseñador principal de los modelos roboticos de la competencia de Lego League.'
   },
   {
     id: 5,
     name: 'Hilary Casillas',
     image: '/kaseki/images/ej.2.jpg',
-    info: 'Utilizamos inteligencia artificial y aprendizaje automático para análisis precisos.'
+    info: 'Constructora,diseñadora y programadora de rutas para los modelos roboticos de la Lego League'
   },
   {
     id: 6,
     name: 'Helaman Gonzalez',
     image: '/kaseki/images/ej.4.jpg',
-    info: 'Herramientas educativas para estudiantes y profesionales de arqueología.'
+    info: 'Constructor principal de prototipos de robots para la competencia.'
   },
   {
     id: 7,
     name: 'Valentina Barajas',
     image: '/kaseki/images/ej.5.jpg',
-    info: 'Trabajamos en conjunto con instituciones académicas y museos.'
+    info: 'Diseñadora de artefactos arqueologicos caseros usados para la presentacion del proyecto.'
   },
   {
     id: 8,
     name: 'Naomi Oceguera',
     image: '/kaseki/images/ej.2.jpg',
-    info: 'Amplia colección de datos sobre materiales arqueológicos históricos.'
+    info: 'Diseñadora de artefactos y presentaciones usadas para el desarrollo del proyecto Kaseki'
   },
   {
     id: 9,
     name: 'Amahia Gomez',
     image: '/kaseki/images/ej.4.jpg',
-    info: 'Herramientas accesibles para investigadores y estudiantes de todo el mundo.'
+    info: 'Diseñadora y escritora de las fichas arqueologicas vistas en galeria, ademas de participar en la elaboracion de estas.'
   }
 ]
 
@@ -101,7 +101,22 @@ export default function About(){
         filter: 'blur(8px)',
         zIndex: -1
       }}></div>
-      <h2 className="text-center mb-4">Acerca de Nosotros</h2>
+      <h2 className="text-center mb-4" style={{
+        fontSize: '3.5rem',
+        fontWeight: 'bold',
+        color: '#8B4513',
+        textTransform: 'uppercase',
+        letterSpacing: '4px',
+        textShadow: '2px 2px 4px rgba(0,0,0,0.2)',
+        marginTop: '2rem',
+        marginBottom: '3rem',
+        borderBottom: '4px solid #D2691E',
+        paddingBottom: '1rem',
+        background: 'linear-gradient(135deg, #8B4513 0%, #D2691E 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text'
+      }}>Acerca de Nosotros</h2>
       
       {/* Tarjeta hero grande con imagen y texto */}
       <div className="card mb-5 shadow-lg border-0" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>

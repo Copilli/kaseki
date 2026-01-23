@@ -37,7 +37,13 @@ export default function Home() {
       }}></div>
       <header className="py-5 text-center border-bottom" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
         <div className="container">
-          <h1 className="display-5">KASEKI</h1>
+          <h1 className="display-5" style={{
+            fontSize: '3.5rem',
+            fontWeight: 'bold',
+            letterSpacing: '6px',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
+            marginBottom: '1rem'
+          }}>KASEKI</h1>
           <p className="lead">Identificación asistida por IA de materiales y origen/civilización.</p>
         </div>
       </header>
@@ -45,7 +51,13 @@ export default function Home() {
       <section className="container py-3">
         <div className="row g-3">
           <div className="col-md-6">
-            <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+            <div className="card shadow-sm" style={{ 
+              background: 'rgba(255,255,255,0.7)', 
+              backdropFilter: 'blur(6px)',
+              border: '3px solid',
+              borderImage: 'linear-gradient(135deg, #8B4513, #D2691E, #DAA520) 1',
+              borderRadius: '8px'
+            }}>
               <div className="card-body">
                 <h3 className="h5 mb-2">Identificación de Materiales</h3>
                 <p className="mb-0">Detecta la composición física (cerámica, lítica, metalurgia), técnicas de manufactura y estado de conservación.</p>
@@ -53,7 +65,13 @@ export default function Home() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+            <div className="card shadow-sm" style={{ 
+              background: 'rgba(255,255,255,0.7)', 
+              backdropFilter: 'blur(6px)',
+              border: '3px solid',
+              borderImage: 'linear-gradient(135deg, #8B4513, #D2691E, #DAA520) 1',
+              borderRadius: '8px'
+            }}>
               <div className="card-body">
                 <h3 className="h5 mb-2">Origen y Civilización</h3>
                 <p className="mb-0">Determina la filiación cultural, periodo cronológico y región, basándose en iconografía y estilo.</p>
@@ -67,7 +85,13 @@ export default function Home() {
         <div className="row g-4 py-5">
           <div className="col-md-8">
             <section>
-              <div className="card border-0 shadow-sm mb-5" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+              <div className="card shadow-sm mb-5" style={{ 
+                background: 'rgba(255,255,255,0.7)', 
+                backdropFilter: 'blur(6px)',
+                border: '3px solid',
+                borderImage: 'linear-gradient(135deg, #8B4513, #D2691E, #DAA520) 1',
+                borderRadius: '8px'
+              }}>
                 <div className="card-body">
                   <h2 className="mb-3">¿Cómo Funciona Kaseki?</h2>
                   <p>Kaseki es una aplicación diseñada para facilitar la comprensión de los procesos fundamentales de la documentación arqueológica. Aquí podrás encontrar guías especializadas para identificar materiales y estructuras antiguas mediante análisis de imágenes con inteligencia artificial.</p>
@@ -98,15 +122,31 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="row mt-4">
-                <div className="col-sm-6">
-                  <div className="card mb-3 border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
-                    <img src="/kaseki/images/ej.1.jpg" className="card-img-top" alt="Ejemplo arqueológico" />
+              <h3 className="mt-5 mb-3 text-center">Galería de Ejemplos</h3>
+              <div className="row g-3">
+                <div className="col">
+                  <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+                    <img src="/kaseki/images/ej.1.jpg" className="card-img-top" alt="Ejemplo arqueológico" style={{objectFit: 'cover', height: '220px'}} />
                   </div>
                 </div>
-                <div className="col-sm-6">
-                  <div className="card mb-3 border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
-                    <img src="/kaseki/images/ej.2.jpg" className="card-img-top" alt="Ejemplo arqueológico" />
+                <div className="col">
+                  <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+                    <img src="/kaseki/images/ej.2.jpg" className="card-img-top" alt="Ejemplo arqueológico" style={{objectFit: 'cover', height: '220px'}} />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+                    <img src="/kaseki/images/ej.3.jpg" className="card-img-top" alt="Ejemplo arqueológico" style={{objectFit: 'cover', height: '220px'}} />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+                    <img src="/kaseki/images/ej.4.jpg" className="card-img-top" alt="Ejemplo arqueológico" style={{objectFit: 'cover', height: '220px'}} />
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+                    <img src="/kaseki/images/ej.5.jpg" className="card-img-top" alt="Ejemplo arqueológico" style={{objectFit: 'cover', height: '220px'}} />
                   </div>
                 </div>
               </div>
@@ -114,11 +154,23 @@ export default function Home() {
           </div>
 
           <aside className="col-md-4">
-            <div className="p-3 mb-3 rounded" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+            <div className="p-3 mb-3 rounded" style={{ 
+              background: 'rgba(255,255,255,0.7)', 
+              backdropFilter: 'blur(6px)',
+              border: '3px solid',
+              borderImage: 'linear-gradient(135deg, #8B4513, #D2691E, #DAA520) 1',
+              borderRadius: '8px'
+            }}>
               <h4>Acerca de Kaseki</h4>
               <p>Proyecto para asistir en la identificación preliminar de materiales arqueológicos a través de imágenes.</p>
             </div>
-            <div className="p-4 mb-3 card" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
+            <div className="p-4 mb-3 card" style={{ 
+              background: 'rgba(255,255,255,0.7)', 
+              backdropFilter: 'blur(6px)',
+              border: '3px solid',
+              borderImage: 'linear-gradient(135deg, #8B4513, #D2691E, #DAA520) 1',
+              borderRadius: '8px'
+            }}>
               <h4 className="fst-italic">Recursos Arqueológicos</h4>
               <ul className="list-unstyled">
                 <li className="py-2 border-top">
@@ -167,35 +219,6 @@ export default function Home() {
                 <li><a href="https://www.metmuseum.org/about-the-met/collection-areas/the-libraries/watson-digital-collections">Metropolitan Museum – Archaeological Resources</a></li>
                 <li><a href="https://www.sciencedirect.com/topics/social-sciences/archaeological-materials">Archaeological Materials – ScienceDirect</a></li>
               </ol>
-            </div>
-
-            <div className="d-flex flex-column gap-3">
-              <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
-                <img 
-                  src="/kaseki/images/ej.3.jpg" 
-                  className="card-img-top" 
-                  alt="Ejemplo arqueológico"
-                  style={{objectFit: 'cover', height: '200px'}}
-                />
-              </div>
-
-              <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
-                <img 
-                  src="/kaseki/images/ej.4.jpg" 
-                  className="card-img-top" 
-                  alt="Ejemplo arqueológico"
-                  style={{objectFit: 'cover', height: '200px'}}
-                />
-              </div>
-
-              <div className="card border-0 shadow-sm" style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)' }}>
-                <img 
-                  src="/kaseki/images/ej.5.jpg" 
-                  className="card-img-top" 
-                  alt="Ejemplo arqueológico"
-                  style={{objectFit: 'cover', height: '200px'}}
-                />
-              </div>
             </div>
           </aside>
         </div>
