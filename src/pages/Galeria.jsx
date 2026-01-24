@@ -3,34 +3,34 @@ import React, { useEffect } from 'react';
 // CONFIGURACIÓN: Imágenes para cada carrusel
 const carouselImages = {
   carousel1: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/calendar.jpg',
+    '/kaseki/images/calendar2.jpg',
+    '/kaseki/images/calendar3.jpg'
   ],
   carousel2: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/piedra.jpg',
+    '/kaseki/images/piedra2.jpg',
+    '/kaseki/images/piedra3.jpg'
   ],
   carousel3: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/circle.jpg',
+    '/kaseki/images/circle2.jpg',
+    '/kaseki/images/circle3.jpg'
   ],
   carousel4: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/bird.jpeg',
+    '/kaseki/images/bird2.jpeg',
+    
   ],
   carousel5: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/jaguar.jpg',
+    '/kaseki/images/jaguar2.jpg',
+    '/kaseki/images/jaguar3.jpg'
   ],
   carousel6: [
-    '/kaseki/images/ej.2.jpg',
-    '/kaseki/images/ej.4.jpg',
-    '/kaseki/images/ej.5.jpg'
+    '/kaseki/images/libro.jpg',
+    '/kaseki/images/libro2.jpg',
+    '/kaseki/images/libro3.jpg'
   ]
 };
 
@@ -415,18 +415,19 @@ export default function Galeria() {
                 letterSpacing: '2px',
                 borderBottom: '3px solid #D2691E',
                 paddingBottom: '0.5rem'
-              }}>Título 6</h5>
+              }}>LIBRO ANTIGUO</h5>
               <p className="card-text">
-                <strong>Cultura Probable:</strong> [Cultura a determinar]
+                <strong>Cultura Probable:</strong> Desconocida, pero se sabe que proviene de la Nueva España.
               </p>
               <p className="card-text">
-                <strong>Periodo:</strong> [Periodo a determinar]
+                <strong>Periodo:</strong> 1571, impreso en Nueva España.
               </p>
               <p className="card-text">
-                <strong>Región:</strong> [Región a determinar]
+                <strong>Región:</strong> Vocabulario de la lengua mexicana y castellana
               </p>
               <p className="card-text">
-                <strong>Justificación:</strong> [Descripción detallada del objeto arqueológico, sus características distintivas y análisis de su autenticidad]
+                <strong>Justificación:</strong>  tiene una encuadernación con nervios en pergamino, papel de algodón, un ex libris, impresiones de xilografía para las ilustraciones, impresión de tipos móviles para la escritura, y anotaciones con tinta ferrogálica.
+
               </p>
               <p className="card-text"><small className="text-muted">Fecha: 2025</small></p>
             </div>

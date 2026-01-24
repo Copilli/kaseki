@@ -29,37 +29,37 @@ const cardsData = [
   {
     id: 4,
     name: 'Daniel Ornelas',
-    image: '/kaseki/images/pet.png',
+    image: '/kaseki/images/daniel.jpg',
     info: 'Constructor y diseñador principal de los modelos roboticos de la competencia de Lego League.'
   },
   {
     id: 5,
     name: 'Hilary Casillas',
-    image: '/kaseki/images/ej.2.jpg',
+    image: '/kaseki/images/hilary.jpeg',
     info: 'Constructora,diseñadora y programadora de rutas para los modelos roboticos de la Lego League'
   },
   {
     id: 6,
     name: 'Helaman Gonzalez',
-    image: '/kaseki/images/ej.4.jpg',
+    image: '/kaseki/images/helaman.jpeg',
     info: 'Constructor principal de prototipos de robots para la competencia.'
   },
   {
     id: 7,
     name: 'Valentina Barajas',
-    image: '/kaseki/images/ej.5.jpg',
+    image: '/kaseki/images/vale.jpg',
     info: 'Diseñadora de artefactos arqueologicos caseros usados para la presentacion del proyecto.'
   },
   {
     id: 8,
     name: 'Naomi Oceguera',
-    image: '/kaseki/images/ej.2.jpg',
+    image: '/kaseki/images/naomi.jpeg',
     info: 'Diseñadora de artefactos y presentaciones usadas para el desarrollo del proyecto Kaseki'
   },
   {
     id: 9,
     name: 'Amahia Gomez',
-    image: '/kaseki/images/ej.4.jpg',
+    image: '/kaseki/images/amahia.jpg',
     info: 'Diseñadora y escritora de las fichas arqueologicas vistas en galeria, ademas de participar en la elaboracion de estas.'
   }
 ]
