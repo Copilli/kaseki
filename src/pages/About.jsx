@@ -10,15 +10,15 @@ const cardsData = [
   },
   {
     id: 1,
-    name: 'Diego Velazquez',
-    image: '/kaseki/images/diego.jpg',
-    info: 'Mecánico y programador del equipo Kaseki. Experto en programación de modelos robóticos para Lego League.'
+    name: 'Ana Sandoval',
+    image: '/kaseki/images/ana.jpg',
+    info: 'Diseñadora del equipo Kaseki. Especialista en la creacion de las esteticas de la aplicacion.'
   },
   {
     id: 2,
-    name: 'Gael Casas',
-    image: '/kaseki/images/gael.jpeg',
-    info: 'Constructor y diseñador del equipo Kaseki. Experto en diseño y construcción de modelos robóticos para Lego League.'
+    name: 'Valentina Barajas',
+    image: '/kaseki/images/vale.jpg',
+    info: 'Escultora y diseñadora del equipo Kaseki. Experto en diseño y construcción de modelos arqueologicos para la aplicacion.'
   },
   {
     id: 3,
@@ -65,7 +65,8 @@ const cardsData = [
 ]
 
 export default function About(){
-  const cards = cardsData
+  // show only the first four cards as requested
+  const cards = cardsData.slice(0, 4)
 
   useEffect(() => {
     document.body.style.backgroundImage = 'url(/kaseki/images/pinkbackground.png)'
@@ -148,7 +149,7 @@ export default function About(){
 
       {/* Sección de miembros y proyecto (unificada) */}
       <h3 className="text-center mb-4">Nuestro Equipo</h3>
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+      <div className="row justify-content-center row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
         {cards.map((card, idx) => (
           <div className="col" key={`${card.name}-${idx}`}>
             <div className="card about-card shadow-sm" style={{ aspectRatio: '1/1', background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(6px)', overflow: 'hidden' }}>
